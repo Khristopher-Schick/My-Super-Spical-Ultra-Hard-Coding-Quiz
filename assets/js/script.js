@@ -56,7 +56,7 @@ const quizData = [
 let currentQuiz = 0
 let score = 0
 
-function loadQuiz() {
+function Quiz() {
 
     deselectAnswers()
 
@@ -103,6 +103,6 @@ submitBtn.addEventListener('click', () => {
     }
 })
 
-loadQuiz()
+Quiz()
 
 
