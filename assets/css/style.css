@@ -59,6 +59,14 @@ button:focus {
   background-color: greenyellow;
 }
 
+.info-title {
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+}
+
 
 
 
