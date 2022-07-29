@@ -3,75 +3,82 @@
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
+const a_text = document.getElementById('choice_a_text')
+const b_text = document.getElementById('choice_b_text')
+const c_text = document.getElementById('choice_c_text')
+const d_text = document.getElementById('choice_d_text')
 const submitBtn = document.getElementById('submit')
 
 
 let currentQuiz = 0
 let score = 0
 // start of questions //
+
 const quizData = [
     {
-    question: "Which of the following is NOT a coding language?",
-    a: "TypeScript",
-    b: "Java",
-    c: "Anaconda",
-    d: "Python",
-    answer: "c",
+    question: "Which of the following is NOT a coding language?", 
+    choice_a: ["typeScript"],
+    choice_b: ["Java"],
+    choice_c: ["Python"],
+    choice_d: ["Anaconda"],
+    answer: "Anaconda"
     },
-    {
-    question: "What is the possesses called of adding two different data types together in JavaScript?",
-    a: "coercion",
-    b: "commutation",
-    c: "complexification",
-    d: "transposition",
-    correct: "a",
-    },
-    {
-    question: "How do you add a comment in JavaScript",
-    a: "//Comment",
-    b: "<!--comment-->",
-    c: "{Comment}",
-    d: "!!Comment!!",
-    correct: "a",
-    },
-    {
-    question: "What does the js in Node.js stand for",
-    a: "HTML",
-    b: "JavaScript",
-    c: "World Wide Web",
-    d: "Doesnt stand for anything",
-    correct: "b",
-    },
-    {
-    question: "Bonus Question! What mark will you give me on this quiz?:",
-    a:"99.8%",
-    b:"99.9%",
-    c:"100%",
-    d:"None of the above",
-    answer:"d",
-    }
 
+    {
+    question: "What is the possesses called of adding two different data types together in JavaScript?", 
+    choice_a: ["coercion"],
+    choice_b: ["commutation"],
+    choice_c: ["complexification"],
+    choice_d: ["transposition"],
+    
+    answer: "coercion"
+    },
+
+    {
+    question: "How do you add a comment in JavaScript", 
+    choice_a: ["//Comment"],
+    choice_b: ["<!--comment-->"],
+    choice_c: ["{Comment}"],
+    choice_d: ["!!Comment!!"],
+    answer: "//Comment"
+    }, 
+
+    {
+    question: "What does the js in Node.js stand for", 
+    choices_a: ["HTML"],
+    choices_b: ["JavaScript"],
+    choices_c: ["Wolrd Wide Web"],
+    choices_d: ["Doesnt stand for anything"],
+    answer: "JavaScript"
+    }, 
+
+    {
+    question: "Bonus Question! What mark will you give me on this quiz?:", 
+    choices_a: ["99.8%"],
+    choices_b: ["99.9%"],
+    choices_c: ["100%"],
+    choices_d: ["None of the above"],
+    answer: "None of the above"
+    },
 
 ];
+
 // end of questions //
+
+// var choicesButtonEl = document.querySelector(".choices");
+
 
 function Quiz() {
 
-    
- 
     deselectAnswers()
 
     const currentQuizData = quizData[currentQuiz]
 
     questionEl.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
+    a_text.innerText = currentQuizData.choices_a
+    b_text.innerText = currentQuizData.choices_b
+    c_text.innerText = currentQuizData.choices_c
+    d_text.innerText = currentQuizData.choices_d
 }
 
 function deselectAnswers() {
@@ -103,6 +110,7 @@ submitBtn.addEventListener('click', () => {
        } else {
            quiz.innerHTML = {}
            `<h2>You answered ${score}/${quizData.length} questions correctly</h2>`
+           
        }
     }
 })
