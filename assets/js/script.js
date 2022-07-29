@@ -129,7 +129,6 @@ function userName () {
         displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`]; 
 
         document.querySelector(".highScoresList").style.visibility = "visible"
-        document.querySelector(".tryAgainBtn").style.visibility = "visible";
         
     }
 
