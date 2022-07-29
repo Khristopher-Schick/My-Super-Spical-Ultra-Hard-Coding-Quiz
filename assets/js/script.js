@@ -12,7 +12,7 @@ const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
 let score = 0
-
+// start of questions //
 const quizData = [
     {
     question: "Which of the following is NOT a coding language?",
@@ -57,9 +57,12 @@ const quizData = [
 
 
 ];
+// end of questions //
 
 function Quiz() {
 
+    
+ 
     deselectAnswers()
 
     const currentQuizData = quizData[currentQuiz]
@@ -96,17 +99,17 @@ submitBtn.addEventListener('click', () => {
        currentQuiz++
 
        if(currentQuiz < quizData.length) {
-           loadQuiz()
+           Quiz()
        } else {
-           quiz.innerHTML = `
-           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-           `
+           quiz.innerHTML = {}
+           `<h2>You answered ${score}/${quizData.length} questions correctly</h2>`
        }
     }
 })
 
 Quiz()
 
+// start of attempt to add scoreboard //
 function userName () {
     document.querySelector(".scoreDisplay").style.visibility = "visible";
     document.querySelector(".form").style.visibility = "visible";
@@ -139,3 +142,4 @@ function userName () {
 
     }
 };
+// end of attempt to add scoreboard //
