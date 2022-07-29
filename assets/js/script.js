@@ -1,4 +1,5 @@
 
+
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
@@ -8,53 +9,54 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 
+
+let currentQuiz = 0
+let score = 0
+
 const quizData = [
     {
-        question: "Which of the following is NOT a coding language?",
-        a: "TypeScript",
-        b: "Java",
-        c: "Anaconda",
-        d: "Python",
-        answer: "c",
+    question: "Which of the following is NOT a coding language?",
+    a: "TypeScript",
+    b: "Java",
+    c: "Anaconda",
+    d: "Python",
+    answer: "c",
     },
     {
-        question: "What is the possesses called of adding two different data types together in JavaScript?",
-        a: "coercion",
-        b: "commutation",
-        c: "complexification",
-        d: "transposition",
-        correct: "a",
+    question: "What is the possesses called of adding two different data types together in JavaScript?",
+    a: "coercion",
+    b: "commutation",
+    c: "complexification",
+    d: "transposition",
+    correct: "a",
     },
     {
-        question: "How do you add a comment in JavaScript",
-        a: "//Comment",
-        b: "<!--comment-->",
-        c: "{Comment}",
-        d: "!!Comment!!",
-        correct: "a",
+    question: "How do you add a comment in JavaScript",
+    a: "//Comment",
+    b: "<!--comment-->",
+    c: "{Comment}",
+    d: "!!Comment!!",
+    correct: "a",
     },
     {
-        question: "What does the js in Node.js stand for",
-        a: "HTML",
-        b: "JavaScript",
-        c: "World Wide Web",
-        d: "Doesnt stand for anything",
-        correct: "b",
+    question: "What does the js in Node.js stand for",
+    a: "HTML",
+    b: "JavaScript",
+    c: "World Wide Web",
+    d: "Doesnt stand for anything",
+    correct: "b",
     },
     {
-        question: "Bonus Question! What mark will you give me on this quiz?:",
-        a:"99.8%",
-        b:"99.9%",
-        c:"100%",
-        d:"None of the above",
-        answer:"d",
+    question: "Bonus Question! What mark will you give me on this quiz?:",
+    a:"99.8%",
+    b:"99.9%",
+    c:"100%",
+    d:"None of the above",
+    answer:"d",
     }
 
 
 ];
-
-let currentQuiz = 0
-let score = 0
 
 function Quiz() {
 
@@ -105,4 +107,35 @@ submitBtn.addEventListener('click', () => {
 
 Quiz()
 
+function userName () {
+    document.querySelector(".scoreDisplay").style.visibility = "visible";
+    document.querySelector(".form").style.visibility = "visible";
+    scoreDisplayEl.textContent = `Your score is ${score}. Please enter your name.`;
 
+    var userInput = document.querySelector(".userInput");
+    var submitBtn = document.querySelector(".submitBtn");
+    var displayUserName = document.querySelector(".userName");
+
+
+
+    userName = [];
+    var userInputValue = userInput.value
+    userName.push({Name: userInputValue, Score: score})
+    function submitUserName () {
+        // adds score to local storage 
+        displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`]; 
+
+        document.querySelector(".highScoresList").style.visibility = "visible"
+        document.querySelector(".tryAgainBtn").style.visibility = "visible";
+        
+    }
+
+    submitBtn.addEventListener("click", submitUserName);
+
+    
+    storeScores();
+    function storeScores () {
+        localStorage.setItem("userName", JSON.stringify(userName));
+
+    }
+};
