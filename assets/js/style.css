@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  height: 100;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  display: flex;
+}
+
+.header {
+  padding: 100px;
+}
+
+button {
+  border-radius: 50px;
+  background-color: navy;
+  color: black;
+  width: 100%;
+  font-size: 25px;
+  padding: 25px;
+}
+
+h3 {
+  padding: 50px;
+  text-align: center;
+  margin: 0;
+  font-size: 50px;
+}
+
+button:focus {
+  background-color: greenyellow;
+}
+
+.info-title {
+  font-size: large;
+  text-align: center;
+}
+
+.info {
+  font-size: large;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  margin: 30px;
+  font-size: 25px;
+}
+
+
+
+
+
+
+
