@@ -1,6 +1,4 @@
 
-
-const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
 const a_text = document.getElementById('choice_a_text')
@@ -12,6 +10,8 @@ const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
 let score = 0
+
+
 // start of questions //
 
 const quizData = [
@@ -70,7 +70,7 @@ const quizData = [
 
 function Quiz() {
 
-    deselectAnswers()
+    unselectedAnswers()
 
     const currentQuizData = quizData[currentQuiz]
 
@@ -81,7 +81,7 @@ function Quiz() {
     d_text.innerText = currentQuizData.choices_d
 }
 
-function deselectAnswers() {
+function unselectedAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
 }
 
@@ -99,7 +99,7 @@ function getSelected() {
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
+       if(answer == quizData[currentQuiz].correct) {
            score++
        }
 
